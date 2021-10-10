@@ -6,6 +6,9 @@ import { Container, Alert, Button, FormGroup, Label, InputGroup, InputGroupAddon
 import Widget from '../../components/Widget';
 import { loginUser } from '../../actions/user';
 import microsoft from '../../assets/microsoft.png';
+import ParticlesBg from 'particles-bg'
+//import Dashboardcopy from '../dashboard/Dashboardcopy';
+//import KYCForm from '../forms/kyc.js'
 
 class Login extends React.Component {
     static propTypes = {
@@ -20,8 +23,9 @@ class Login extends React.Component {
         super(props);
 
         this.state = {
-            email: 'admin@flatlogic.com',
+            email: 'admin@finvested.com',
             password: 'password',
+            showDashboard:false
         };
 
         this.doLogin = this.doLogin.bind(this);
@@ -50,20 +54,29 @@ class Login extends React.Component {
     render() {
         const { from } = this.props.location.state || { from: { pathname: '/app' } }; // eslint-disable-line
 
+        // if(this.state.email==='admin@finvested.com'){
+        //     return (
+        //         <Redirect to={'/app/main'}/>
+        //     )
+        // }
         // cant access login page while logged in
-        if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
+        if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated'))) ) {
             return (
                 <Redirect to={from} />
             );
         }
 
+        
+
         return (
+            <>
             <div className="auth-page">
+                <ParticlesBg type="random"  bg={true} />
                 <Container>
-                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Login to your Web App</h3>}>
-                        <p className="widget-auth-info">
+                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Sign In</h3>}>
+                        {/* <p className="widget-auth-info">
                             Use your email to sign in.
-                        </p>
+                        </p> */}
                         <form onSubmit={this.doLogin}>
                             {
                                 this.props.errorMessage && (
@@ -99,7 +112,7 @@ class Login extends React.Component {
                             </FormGroup>
                             <div className="bg-widget auth-widget-footer">
                                 <Button type="submit" color="danger" className="auth-btn"
-                                        size="sm" style={{color: '#fff'}}>
+                                        size="sm" style={{color: '#fff'}} >
                                   <span className="auth-btn-circle" style={{marginRight: 8}}>
                                     <i className="la la-caret-right"/>
                                   </span>
@@ -109,7 +122,7 @@ class Login extends React.Component {
                                     Don't have an account? Sign up now!
                                 </p>
                                 <Link className="d-block text-center mb-4" to="register">Create an Account</Link>
-                                <div className="social-buttons">
+                                {/* <div className="social-buttons">
                                     <Button color="primary" className="social-button">
                                         <i className="social-icon social-google"/>
                                         <p className="social-text">GOOGLE</p>
@@ -119,15 +132,16 @@ class Login extends React.Component {
                                            style={{backgroundImage: `url(${microsoft})`}}/>
                                         <p className="social-text" style={{color: '#fff'}}>MICROSOFT</p>
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         </form>
                     </Widget>
                 </Container>
-                <footer className="auth-footer">
+                {/* <footer className="auth-footer">
                 {new Date().getFullYear()} &copy; Light Blue Template - React Admin Dashboard Template Made by <a href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic LLC</a>.
-                </footer>
+                </footer> */}
             </div>
+            </>
         );
     }
 }

@@ -11,7 +11,18 @@ import TablesStatic from '../../pages/tables/static';
 import MapsGoogle from '../../pages/components/maps/google';
 import CoreTypography from '../../pages/typography';
 import Charts from '../../pages/components/charts/Charts';
-import Dashboard from '../../pages/dashboard';
+import Dashboard from '../../pages/dashboard/Dashboard';
+import bbpsForm from '../../pages/forms/bbpsForm.js'
+import BillsForm from '../../pages/forms/BillsForm.js';
+import BankAccount from '../../pages/forms/bankAccount.js';
+import EditProfile from '../../pages/forms/editProfile.js';
+import ElectricityBill from '../../pages/forms/electricityForm.js';
+import Rewards from '../../pages/forms/rewards.js';
+import KYCForm from '../../pages/forms/kyc.js';
+import Goals from '../../pages/forms/goals.js';
+import CreatedGoal from '../../pages/forms/createdGoals.js';
+import BankDetails from '../../pages/forms/bankdetails.js';
+import Assets from '../../pages/forms/landForm';
 
 import Header from '../Header';
 import Sidebar from '../Sidebar';
@@ -84,13 +95,23 @@ class Layout extends React.Component {
                     <Route path="/app/components/charts" exact component={Charts} />
                     <Route path="/app/tables" exact component={TablesStatic} />
                     <Route path="/app/components/maps" exact component={MapsGoogle} />
-                    <Route path="/app/typography" exact component={CoreTypography} />
+                    <Route path="/app/profile" exact component={EditProfile} />
+                    <Route path="/app/bills" exact component={bbpsForm} />
+                    <Route path="/app/bank-account" exact component={BankAccount} />
+                    <Route path="/app/goals" exact component={Goals} />
+                    <Route path="/app/rewards" exact component={Rewards} />
+                    <Route path="/app/assets" exact component={Assets} />
+                    <Route path="/app/billsform" exact component={BillsForm} />
+                    <Route path="/app/electricitybill" exact component={ElectricityBill} />
+                    <Route path="/app/kyc" exact component={KYCForm} />
+                    <Route path="/app/created-goals" exact component={CreatedGoal} />
+                    <Route path="/app/bankdetails" exact component={BankDetails} />
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
-              <footer className={s.contentFooter}>
+              {/* <footer className={s.contentFooter}>
                 Light Blue React Template - React admin template made by <a href="https://flatlogic.com" >Flatlogic</a>
-              </footer>
+              </footer> */}
             </main>
           </Hammer>
         </div>

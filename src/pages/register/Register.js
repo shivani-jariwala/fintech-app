@@ -7,6 +7,7 @@ import Widget from '../../components/Widget';
 import { registerUser, registerError } from '../../actions/register';
 import microsoft from '../../assets/microsoft.png';
 import Login from '../login';
+import ParticlesBg from 'particles-bg'
 
 class Register extends React.Component {
     static propTypes = {
@@ -86,8 +87,9 @@ class Register extends React.Component {
 
         return (
             <div className="auth-page">
+                <ParticlesBg type="random"  bg={true} />
                 <Container>
-                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Login to your Web App</h3>}>
+                    <Widget className="widget-auth mx-auto" title={<h3 className="mt-0">Register</h3>}>
                         <p className="widget-auth-info">
                             Please fill all fields below.
                         </p>
@@ -126,11 +128,12 @@ class Register extends React.Component {
                                 </InputGroup>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="confirmPassword">Confirm</Label>
+                                <Label for="confirmPassword">DOB</Label>
                                 <InputGroup className="input-group-no-border">
                                     <InputGroupAddon addonType="prepend">
                                         <InputGroupText>
-                                            <i className="la la-lock text-white"/>
+                                            <i class="fa fa-calendar text-white" aria-hidden="true"></i>
+                                            {/* <i className="la la-lock text-white"/> */}
                                         </InputGroupText>
                                     </InputGroupAddon>
                                     <Input id="confirmPassword" className="input-transparent pl-3" value={this.state.confirmPassword}
@@ -145,7 +148,7 @@ class Register extends React.Component {
                                     Already have the account? Login now!
                                 </p>
                                 <Link className="d-block text-center mb-4" to="login">Enter the account</Link>
-                                <div className="social-buttons">
+                                {/* <div className="social-buttons">
                                     <Button color="primary" className="social-button">
                                         <i className="social-icon social-google"/>
                                         <p className="social-text">GOOGLE</p>
@@ -155,7 +158,7 @@ class Register extends React.Component {
                                            style={{backgroundImage: `url(${microsoft})`}}/>
                                         <p className="social-text" style={{color: '#fff'}}>MICROSOFT</p>
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         </form>
                     </Widget>
@@ -206,9 +209,9 @@ class Register extends React.Component {
                         {/*<Link className="d-block text-center" to="login">Enter the account</Link>*/}
                     {/*</Widget>*/}
                 </Container>
-                <footer className="auth-footer">
+                {/* <footer className="auth-footer">
                 {new Date().getFullYear()} &copy; Light Blue Template - React Admin Dashboard Template Made by <a href="https://flatlogic.com" rel="noopener noreferrer" target="_blank">Flatlogic LLC</a>.                    
-                </footer>
+                </footer> */}
             </div>
         );
     }
